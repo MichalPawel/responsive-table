@@ -1,6 +1,8 @@
-Photo gallery with API
+Responsive table
 
 training with: https://www.udemy.com/course/zaawansowane-projekty-w-css-i-javascript/
+
+SVG icon: https://freeicons.io/vegetables-and-fruits-icons/apple-icon-1630
 
 
 
