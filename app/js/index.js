@@ -23,8 +23,14 @@ const values = [
     { name: 'Pomarańcza', calories: 51, fat: 0.2, carbs: 11.3 },
     { name: 'Wiśnie', calories: 67, fat: 0.4, carbs: 14.6 },
 ]
-const desktopViewport = window.matchMedia('screen and (min-width: 500px)');
-const drawMobileValues = () => {
+const drawValues = (isDesktop) => { //selecting table style
+    if (isDesktop) {
+        drawDesktopValues()
+    } else {
+        drawMobileValues()
+    }
+}
+const drawMobileValues = () => { //mobile style
     valuesContainer.innerHTML = '';
     let list = document.createElement('ul');
     values.forEach(value => {
@@ -45,24 +51,23 @@ const drawMobileValues = () => {
     })
     valuesContainer.appendChild(list);
 }
-
-const drawDesktopValues = () => {
+const drawDesktopValues = () => { //desktop style
     valuesContainer.innerHTML = '';
-
     let table = document.createElement('table');
     let thead = document.createElement('thead');
     thead.innerHTML = '<tr><th>Nazwa</th><th>Kalorie</th><th>Tłuszcz</th><th>Węglowodany</th></tr>';
     let tbody = document.createElement('tbody');
-
     values.forEach((value) => {
         let row = document.createElement('tr');
         row.innerHTML = `<tr><th>${value.name}</th><th>${value.calories}</th><th>${value.fat}</th><th>${value.carbs}</th></tr>`
         tbody.appendChild(row)
     })
-
     table.appendChild(thead);
     table.appendChild(tbody);
     valuesContainer.appendChild(table);
 }
-drawDesktopValues();
-drawMobileValues();
+const desktopViewport = window.matchMedia('screen and (min-width: 500px)'); //checking screen width
+drawValues(desktopViewport.matches); //first render
+desktopViewport.addEventListener('change', isDesktop => { //dynamic render
+    drawValues(isDesktop.matches)
+})
