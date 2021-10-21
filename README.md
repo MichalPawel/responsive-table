@@ -9,10 +9,6 @@ SVG icon: https://freeicons.io/vegetables-and-fruits-icons/apple-icon-1630
 
 # Minimalist Webpack Boilerplate
 
-## Instructions
-
-- Clone repo - `git clone https://github.com/jpggvilaca/webpack-boilerplate.git`
-- Change to the cloned repo's folder - `cd webpack-boilerplate`
 - Install dependencies - `npm install`
 - Start the server - `npm start`
 - Navigate to `localhost:3500` in the browser
