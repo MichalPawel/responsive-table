@@ -23,13 +23,7 @@ const values = [
     { name: 'Pomarańcza', calories: 51, fat: 0.2, carbs: 11.3 },
     { name: 'Wiśnie', calories: 67, fat: 0.4, carbs: 14.6 },
 ]
-const drawValues = (isDesktop) => { //selecting table style
-    if (isDesktop) {
-        drawDesktopValues()
-    } else {
-        drawMobileValues()
-    }
-}
+
 const drawMobileValues = () => { //mobile style
     valuesContainer.innerHTML = '';
     let list = document.createElement('ul');
@@ -65,6 +59,13 @@ const drawDesktopValues = () => { //desktop style
     table.appendChild(thead);
     table.appendChild(tbody);
     valuesContainer.appendChild(table);
+}
+const drawValues = (isDesktop) => { //selecting table style
+    if (isDesktop) {
+        drawDesktopValues()
+    } else {
+        drawMobileValues()
+    }
 }
 const desktopViewport = window.matchMedia('screen and (min-width: 500px)'); //checking screen width
 drawValues(desktopViewport.matches); //first render
