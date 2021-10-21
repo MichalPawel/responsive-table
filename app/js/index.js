@@ -23,7 +23,6 @@ const values = [
     { name: 'Pomarańcza', calories: 51, fat: 0.2, carbs: 11.3 },
     { name: 'Wiśnie', calories: 67, fat: 0.4, carbs: 14.6 },
 ]
-
 const drawMobileValues = () => { //mobile style
     valuesContainer.innerHTML = '';
     let list = document.createElement('ul');
